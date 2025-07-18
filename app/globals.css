@@ -2,26 +2,101 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease;
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Text gradients */
+  .text-gradient {
+    @apply bg-gradient-to-r from-google-blue via-google-red to-google-yellow bg-clip-text text-transparent;
+  }
+
+  /* Brand gradient background */
+  .brand-gradient {
+    background: linear-gradient(
+      135deg,
+      #4285F4 0%,
+      #4285F4 40%,
+      #EA4335 40%,
+      #EA4335 65%,
+      #FBBC04 65%,
+      #FBBC04 85%,
+      #34A853 85%,
+      #34A853 100%
+    );
+  }
+
+  /* Soft gradient for backgrounds */
+  .soft-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(66, 133, 244, 0.05) 0%,
+      rgba(234, 67, 53, 0.05) 40%,
+      rgba(251, 188, 4, 0.05) 70%,
+      rgba(52, 168, 83, 0.05) 100%
+    );
+  }
+
+  /* Safe area padding for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
 }
 
+/* Animation utilities */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .animate-in {
+    animation: fadeIn var(--transition-normal) forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--transition-slow) forwards;
   }
 }

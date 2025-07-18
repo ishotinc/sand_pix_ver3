@@ -1,0 +1,40 @@
+{
+  "images": [
+    {
+      "id": "1",
+      "url": "/images/swipe/image1.jpg",
+      "attributes": {
+        "warm": 1,
+        "cool": 0,
+        "mono": 0,
+        "vivid": 1,
+        "friendly": 1,
+        "professional": 0,
+        "creative": 0,
+        "minimal": 0,
+        "energetic": 1,
+        "trustworthy": 0,
+        "luxurious": 0,
+        "approachable": 1
+      }
+    },
+    {
+      "id": "2",
+      "url": "/images/swipe/image2.jpg",
+      "attributes": {
+        "warm": 0,
+        "cool": 1,
+        "mono": 1,
+        "vivid": 0,
+        "friendly": 0,
+        "professional": 1,
+        "creative": 0,
+        "minimal": 1,
+        "energetic": 0,
+        "trustworthy": 1,
+        "luxurious": 0,
+        "approachable": 0
+      }
+    }
+  ]
+}
